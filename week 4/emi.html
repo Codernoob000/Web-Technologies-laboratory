@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <h3>EMI Calculation</h3>
+        <style>
+            input[type=text] {
+            background-color:rgb(35, 5, 10);
+            width: 300px; color:orange;
+            padding:5px;
+            }
+            input[type=number] {
+            background-color:rgb(239, 149, 13);
+            width: 100%; color:blue;
+              padding:5px;
+            }
+
+            input[type=button] {
+                background-color:green;
+             color:blue;
+              padding:5px;
+            }
+        </style>
+    </head>
+    <body bgcolor="powderblue" align="center">
+
+        
+        <form>
+
+           Name <input type="text" placeholder="enter your name"><br><br>
+           Occupation<input type="text" placeholder="enter occupation"><br><br>
+            Amount<input id="A" type="number" placeholder="enter amount"><br><br>
+           Interest<input id="B" type="number" placeholder="enter interest"><br><br>
+           Tenure<input id="C" type="number" placeholder="enter your tenure"><br><br>
+           <input type="button" value="calculate EMI" onclick="Calculate()"><br>
+
+        </form>
+
+        <p id="result"></p>
+
+
+        <script>
+            function Calculate(){
+            var Amount=document.getElementById("A").value;
+            var Interest=document.getElementById("B").value;
+            var Tenure=document.getElementById("C").value;
+            var roi=Interest/(12*100);
+            var month=Tenure*12;
+            var emi = (Amount * roi * Math.pow(1 + roi,month)) / (Math.pow(1 + roi, month) - 1);
+            document.getElementById("result").innerHTML = "your EMI is : " + emi.toFixed(2) ;
+            }
+        </script>
+
+        <p align="center">
+            G.Rithvik<br>
+            24881A1223
+        </p>
+    </body>
+</html>

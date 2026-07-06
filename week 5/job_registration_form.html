@@ -1,0 +1,69 @@
+<html>
+    <body align="center" bgcolor="lightblue">
+        <h3>Job Registration Form</h3>
+        <form>
+            <table align="center">
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" placeholder="name" id="us" ></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" placeholder="email" id="em" ></td>
+                </tr>
+                <tr>
+                    <td>Phone no:</td>
+                    <td><input type="number" placeholder="phone" id="pn" ></td>
+                </tr>
+            </table>
+            <input type="Submit" value="Submit" onclick="return validate()">
+        </form>
+        <script>
+            function validate() {
+            var us_name = document.getElementById("us");
+            var email = document.getElementById("em");
+            var phone = document.getElementById("pn");
+
+            var p = us_name.value;
+            var q = email.value;
+            var r = phone.value;
+
+            var x = /^[a-zA-Z]+[0-9a-zA-Z._]*$/;
+            var y = /^[a-zA-Z]+([\._]?\w+)*@\w+([\._]?\w+)*(\.\w{2,3})+$/;
+            var z = /^[6-9][0-9]{9}$/;
+
+        if (x.test(p)) {
+            if (y.test(q)) {
+                if (z.test(r)) {
+                    alert("Registration Successful");
+                    return true;
+                } 
+                else {
+                    return error(phone);
+                }
+            }
+            else {
+                return error(email);
+            }  
+        } 
+        else {
+            return error(us_name);
+        }   
+    } 
+
+
+function error(ele) {
+    alert("Invalid ");
+    ele.style.border = "3px solid red";
+    ele.value = "";
+    ele.placeholder = "invalid";
+    ele.focus();
+    return false;
+}
+        </script>
+        <br><br><br>
+            G.Rithvik <br>
+            24881A1223 <br>
+            
+    </body>
+</html>
